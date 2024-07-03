@@ -2,11 +2,15 @@
     "builds": [
       {
         "src": "frontend/package.json",
-        "use": "@vercel/next"
+        "use": "@vercel/node"
       },
       {
         "src": "backend/server.js",
-        "use": "@vercel/node"
+        "use": "@vercel/node",
+        "config": {
+          "NODE_ENV": "production",
+          "CUSTOM_VAR": "value"
+        }
       }
     ],
     "routes": [
@@ -14,3 +18,4 @@
       { "src": "/(.*)", "dest": "/frontend/.next/$1" }
     ]
   }
+
