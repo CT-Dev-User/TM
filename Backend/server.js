@@ -1,24 +1,26 @@
+ 
 
-// app.use( frontPage);
+
 import express from 'express';
-import { conn } from './connection.js';
-// import {frontPage} from './routes/navbar.js'
-import cors from 'cors'
-import router from './routes/dataRoute.js';
+import cors from 'cors';
 import homeRouter from './routes/homeRoutes.js';
 import queryformrouter from './controllers/aboutUs/queryFormData.js';
+import router from './routes/dataRoute.js';
+import { conn } from './connection.js';
 
-
-// Initialize Express app
 const app = express();
-app.use(express.json());
-app.use(cors());
 
-// app.use(frontPage);
-app.use(homeRouter)
-app.use(queryformrouter)
-app.use(router)
+// Middleware
+app.use(express.json()); // Parse JSON bodies
+app.use(cors()); // Enable CORS
 
-app.listen(8000,()=>{
-  console.log(`server running @ http://localhost:8000`)
-})
+// Routes
+app.use(homeRouter);
+app.use(queryformrouter);
+app.use(router);
+
+// Start server
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Server running @ http://localhost:${PORT}`);
+});
