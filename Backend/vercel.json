@@ -4,6 +4,10 @@
       {
         "src": "server.js",
         "use": "@vercel/node"
+      },
+      {
+        "src": "next.config.js",
+        "use": "@now/next"
       }
     ],
     "routes": [
@@ -13,3 +17,8 @@
       }
     ]
   }
+
+  
+  
+
+  
