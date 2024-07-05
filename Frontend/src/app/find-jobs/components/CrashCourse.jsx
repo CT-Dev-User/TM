@@ -7,7 +7,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import CarouselCardComponent from "./CarouselCardComponent";
+import CarouselCardComponent from "./carouselCardComponent";
 
 const CrashCourse = ({ crashCourseData }) => {
   if (!crashCourseData) {
